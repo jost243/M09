@@ -1,0 +1,84 @@
+
+body {
+    counter-reset: section;
+}
+
+.article {
+    position: relative;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin: auto;
+    border: 2px solid white;
+}
+
+.professors {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+
+.article h1{
+    transition: 2s;
+}
+
+h1 {
+    counter-reset: subsection;
+}
+
+h1::after {
+    counter-increment: section;
+    content: "- (" counter(section)")";
+    color: transparent;
+    text-decoration-line: none;
+}
+
+.article:hover h1::after {
+    color: black;
+}
+
+.article:hover {
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.article:hover h1 {
+    text-decoration: underline;
+    border-radius: 8px;
+    background-color: gray;
+}
+
+.barra {
+    background-color: black;
+    position: absolute;
+}
+
+.article:hover .barra {
+    left: 10px;
+    animation: 4s ease-in-out alternate barraMov;
+}
+
+span {
+    transition: 2s;
+}
+
+span:hover {
+    transform: rotate(360deg);
+}
+
+@keyframes barraMov {
+    from {
+        top: 0px;
+        height: 0px;
+    }
+    50% {
+        width: 5px;
+        height: 270px;
+    }
+    to {
+        bottom: 30px;
+        height: 0px;
+        width: 5px;
+    }
+}
+
+
